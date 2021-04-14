@@ -3,5 +3,8 @@
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::AAD82C0C-0A0D-4EA9-A860-C62A554A318B::.NETFramework,Version=v4.8::ValueObjectDemo.Tests.Tests.AssignStringAndGetNumber&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::AAD82C0C-0A0D-4EA9-A860-C62A554A318B::.NETFramework,Version=v4.8::ValueObjectDemo.Tests.Tests.AssignNumberAndGetString&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::AAD82C0C-0A0D-4EA9-A860-C62A554A318B::.NETFramework,Version=v4.8::ValueObjectDemo.Tests.Tests.AssignNullNumberAndGetString&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::AAD82C0C-0A0D-4EA9-A860-C62A554A318B::.NETFramework,Version=v4.8::ValueObjectDemo.Tests.Tests.AssignNullStringAndGetNumber&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::AAD82C0C-0A0D-4EA9-A860-C62A554A318B::.NETFramework,Version=v4.8::ValueObjectDemo.Tests.Tests.AssignIllegalStringAndGetNumber&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

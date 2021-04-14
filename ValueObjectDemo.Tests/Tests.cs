@@ -30,6 +30,19 @@ namespace ValueObjectDemo.Tests
         }
         
         [Test]
+        public void AssignIllegalStringAndGetNumber()
+        {
+            string height = "abcde";
+            var model = new Member();
+            model.Height = height;
+            
+            decimal? actual = model.HeightNumber;
+            
+            Assert.IsFalse(actual.HasValue);
+            Assert.AreEqual(height, model.Height);
+        }
+        
+        [Test]
         public void AssignNumberAndGetString()
         {
             var model = new Member();
