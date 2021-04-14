@@ -21,8 +21,19 @@ namespace ValueObjectDemo.Tests
 
     public class Member
     {
-        public string Height { get; set; }
-        public decimal? HeightNumer { get; set; }
+        private DecimalVo _Height=null;
+
+        public string Height
+        {
+            get => _Height;
+            set => _Height = value;
+        }
+
+        public decimal? HeightNumer
+        {
+            get => _Height;
+            set => _Height = value;
+        }
     }
 
     public class DecimalVo
@@ -52,7 +63,7 @@ namespace ValueObjectDemo.Tests
         
         public static implicit operator DecimalVo(string value) => new DecimalVo(value);
         public static implicit operator DecimalVo(decimal value) => new DecimalVo(value);
-        public static implicit operator string(DecimalVo source) => source.value;ß
+        public static implicit operator string(DecimalVo source) => source.value;
         public static implicit operator decimal?(DecimalVo source) => source.number;
     }
 }
