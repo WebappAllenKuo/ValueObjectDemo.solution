@@ -19,6 +19,17 @@ namespace ValueObjectDemo.Tests
         }
         
         [Test]
+        public void AssignNullStringAndGetNumber()
+        {
+            var model = new Member();
+            model.Height = null;
+            
+            decimal? actual = model.HeightNumber;
+            
+            Assert.IsFalse(actual.HasValue);
+        }
+        
+        [Test]
         public void AssignNumberAndGetString()
         {
             var model = new Member();
