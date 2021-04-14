@@ -28,6 +28,17 @@ namespace ValueObjectDemo.Tests
             
             Assert.AreEqual("100.8", actual);
         }
+        
+        [Test]
+        public void AssignNullNumberAndGetString()
+        {
+            var model = new Member();
+            model.HeightNumber = null;
+            
+            string actual = model.Height;
+            
+            Assert.IsNull(actual);
+        }
     }
 
     public class Member
@@ -43,7 +54,7 @@ namespace ValueObjectDemo.Tests
         public decimal? HeightNumber
         {
             get => _Height;
-            set => _Height = value.Value;
+            set => _Height = value;
         }
     }
 
