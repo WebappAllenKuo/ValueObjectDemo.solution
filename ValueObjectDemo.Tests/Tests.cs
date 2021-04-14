@@ -24,4 +24,35 @@ namespace ValueObjectDemo.Tests
         public string Height { get; set; }
         public decimal? HeightNumer { get; set; }
     }
+
+    public class DecimalVo
+    {
+        private string value = null;
+        private decimal? number = null;
+        
+        private DecimalVo(string value)
+        {
+            this.value = value;
+
+            if (decimal.TryParse(value, out decimal num))
+            {
+                this.number = num;
+            }
+            else
+            {
+                this.number = null;
+            }
+        }
+
+        private DecimalVo(decimal value)
+        {
+            this.number = value;
+            this.value = this.value.ToString();
+        }
+        
+        public static implicit operator DecimalVo(string value) => new DecimalVo(value);
+        public static implicit operator DecimalVo(decimal value) => new DecimalVo(value);
+        public static implicit operator string(DecimalVo source) => source.value;ß
+        public static implicit operator decimal?(DecimalVo source) => source.number;
+    }
 }
