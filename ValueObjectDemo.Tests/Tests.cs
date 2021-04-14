@@ -12,10 +12,21 @@ namespace ValueObjectDemo.Tests
             var model = new Member();
             model.Height = "100.8";
             
-            decimal? actual = model.HeightNumer;
+            decimal? actual = model.HeightNumber;
             
             Assert.IsTrue(actual.HasValue);
             Assert.AreEqual(100.8M, actual.Value);
+        }
+        
+        [Test]
+        public void AssignNumberAndGetString()
+        {
+            var model = new Member();
+            model.HeightNumber = 100.8M;
+            
+            string actual = model.Height;
+            
+            Assert.AreEqual("100.8", actual);
         }
     }
 
@@ -29,10 +40,10 @@ namespace ValueObjectDemo.Tests
             set => _Height = value;
         }
 
-        public decimal? HeightNumer
+        public decimal? HeightNumber
         {
             get => _Height;
-            set => _Height = value;
+            set => _Height = value.Value;
         }
     }
 
@@ -55,14 +66,23 @@ namespace ValueObjectDemo.Tests
             }
         }
 
-        private DecimalVo(decimal value)
+        private DecimalVo(decimal? value)
         {
-            this.number = value;
-            this.value = this.value.ToString();
+            if (value.HasValue)
+            {
+                this.number = value.Value;
+                this.value = this.number.ToString();
+            }
+            else
+            {
+                this.value = null;
+                this.number = null;
+            }
+            
         }
         
         public static implicit operator DecimalVo(string value) => new DecimalVo(value);
-        public static implicit operator DecimalVo(decimal value) => new DecimalVo(value);
+        public static implicit operator DecimalVo(decimal? value) => new DecimalVo(value);
         public static implicit operator string(DecimalVo source) => source.value;
         public static implicit operator decimal?(DecimalVo source) => source.number;
     }
